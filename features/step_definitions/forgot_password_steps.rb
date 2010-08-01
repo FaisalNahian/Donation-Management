@@ -1,5 +1,5 @@
 Given /^I am not authenticated$/ do
-  visit('/users/sign_out') # ensure that at least
+  visit('/user_sessions/destroy') # ensure that at least
 end
 
 Given /^there is (\d+) user with the email address (.*)$/ do |count, email|

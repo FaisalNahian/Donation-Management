@@ -1,10 +1,18 @@
-class CreateAdmins < ActiveRecord::Migration
+class CreateUsers < ActiveRecord::Migration
   def self.up
-    create_table :admins do |t|
-      t.string :firstname
-      t.string :lastname
+    create_table(:users) do |t|
+      t.string :firstname, :null => false
+      t.string :lastname, :null => false
       t.string :email, :null => false
-      
+      t.string :url_slug, :null => false
+      t.string :gender
+      t.string :phone
+      t.string :organization
+      t.string :description      
+      t.date :birthdate
+      t.integer :country_id, :null => false
+      t.string :province
+
       t.string    :crypted_password,    :null => false    # optional, see below
       t.string    :password_salt,       :null => false    # optional, but highly recommended
       t.string    :persistence_token,   :null => false    # required
@@ -18,12 +26,15 @@ class CreateAdmins < ActiveRecord::Migration
       t.datetime  :last_login_at
       t.string    :current_login_ip
       t.string    :last_login_ip
+      t.boolean   :locked,           :default => false
       t.timestamps
     end
-    Admin.create(:email => "admin@domain.com", :password => "password", :password_confirmation => "password", :firstname => "Test", :lastname => "Test")
+
+    add_index :users, :perishable_token  
+    add_index :users, :email
   end
 
   def self.down
-    drop_table :admins
+    drop_table :users
   end
 end

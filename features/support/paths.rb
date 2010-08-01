@@ -32,6 +32,14 @@ module NavigationHelpers
         raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
           "Now, go and add a mapping in #{__FILE__}"
       end
+    when /the ([a-zA-Z]*) admin (.*) page/
+      begin
+        page_name =~ /the ([a-zA-Z]*) admin (.*) page/
+        "/admin/#{$2}/#{$1}"
+      rescue Object => e
+        raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
+          "Now, go and add a mapping in #{__FILE__}"
+      end
     else
       begin
         page_name =~ /the (.*) page/

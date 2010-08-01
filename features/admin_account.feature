@@ -19,10 +19,4 @@ Feature: Admin Account
 	When I follow "Logout"
 	Then I should see "Signed out successfully"
 	When I go to the admin dashboard page
-	Then I should see "You need to sign in or sign up before continuing"
-	When I fill in the following:
-		| admin[email]                  | test@test.com |
-		| admin[password]               | testtest      |
-	And I press "Sign in"
-	Then I should see "Signed in successfully"
-	And I should see "Admin Dashboard"
+	Then I should see "You must be logged in to access this page"

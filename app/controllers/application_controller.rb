@@ -4,45 +4,57 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
+
+  filter_parameter_logging :password, :password_confirmation
+  helper_method :current_user_session, :current_user
+
   before_filter :init
-  before_filter :check_recaptcha_for_devise, :only => :create
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   
-#  layout :layout_by_resource
   layout 'main'
-  
-  def layout_by_resource
-    if devise_controller? and request.xhr?
-      false
-    else
-      "main"
-    end
-  end
 
-  
+
   private
-  def init
-    @setting = Setting.first
-  end
+    def init
+      @setting = Setting.first
+    end
   
-  def check_recaptcha_for_devise
-    # mark Devise Controllers to be excluded from verify_recaptcha
-    except_devise_controllers = [:sessions, :passwords]
-
-    # check if it's a devise_controller? and if marked for verify_recaptcha
-    if devise_controller? && !except_devise_controllers.include?(controller_name.to_sym) and @setting
-
-      # build the resource first and then check recaptcha challenge
-      build_resource
-      unless verify_recaptcha(:private_key => @setting.recaptcha_private_key)
-
-        # if it fails add the error and render the form back to the client
-        message = 'reCaptcha characters didn\'t match the word verification'
-        resource.errors.add_to_base(message)
-        render_with_scope :new
+    def current_user_session
+      return @current_user_session if defined?(@current_user_session)
+      @current_user_session = UserSession.find
+    end
+    
+    def current_user
+      return @current_user if defined?(@current_user)
+      @current_user = current_user_session && current_user_session.record
+    end
+    
+    def require_user
+      unless current_user
+        store_location
+        flash[:notice] = "You must be logged in to access this page"
+        redirect_to new_user_session_url
+        return false
       end
     end
-  end
+
+    def require_no_user
+      if current_user
+        store_location
+        flash[:notice] = "You must be logged out to access this page"
+        redirect_to users_url
+        return false
+      end
+    end
+    
+    def store_location
+      session[:return_to] = request.request_uri
+    end
+    
+    def redirect_back_or_default(default)
+      redirect_to(session[:return_to] || default)
+      session[:return_to] = nil
+    end
 end

@@ -10,11 +10,11 @@ Feature: Forgot Password
 	When I follow "Login"
 	Then I should see "Forgot password?"
 	When I follow "Forgot password?"
-	Then I should see "Enter your email address"
+	Then I should see "Fill out the form below and instructions to reset your password will be emailed to you"
 	And I should see "Home"
-	When I fill in "user[email]" with "test@domain.com"
-	And I press "Send me reset password instructions"
-	Then "test@domain.com" should receive an email with subject "Reset password instructions"
+	When I fill in "email" with "test@domain.com"
+	And I press "Reset my password"
+	Then "test@domain.com" should receive an email with subject "Password Retrieval"
 	And I should see "You will receive an email with instructions about how to reset your password in a few minutes"
 	And my password reset key should not be nil
 	When I open the email

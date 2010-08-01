@@ -8,7 +8,7 @@
 		<%= render :partial => 'layouts/admin/top_nav'%>
 		<%= yield(:page_title) %>
 		<div id="error"></div>
-		<%= render :partial => 'layouts/admin/nav' %>
+		<%= render :partial => 'layouts/admin/nav' if current_admin %>
 		<div id="content">
 	       <p class="notice"><%= flash[:notice] %></p>
 	       <p class="alert"><%= flash[:alert] %></p>
