@@ -9,55 +9,65 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100712025101) do
+ActiveRecord::Schema.define(:version => 20100718040216) do
 
   create_table "admins", :force => true do |t|
-    t.string   "email",                             :default => "", :null => false
-    t.string   "encrypted_password", :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                     :default => "", :null => false
-    t.integer  "failed_attempts",                   :default => 0
-    t.string   "unlock_token"
-    t.datetime "locked_at"
-    t.integer  "sign_in_count",                     :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "email",                              :null => false
+    t.string   "crypted_password",                   :null => false
+    t.string   "password_salt",                      :null => false
+    t.string   "persistence_token",                  :null => false
+    t.string   "single_access_token",                :null => false
+    t.string   "perishable_token",                   :null => false
+    t.integer  "login_count",         :default => 0, :null => false
+    t.integer  "failed_login_count",  :default => 0, :null => false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "settings", :force => true do |t|
+    t.string "timezone"
+    t.string "recaptcha_domain"
+    t.string "recaptcha_public_key"
+    t.string "recaptcha_private_key"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                               :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "reset_password_token"
-    t.string   "remember_token"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.integer  "failed_attempts",                     :default => 0
-    t.string   "unlock_token"
-    t.datetime "locked_at"
-    t.string   "firstname",                                           :null => false
-    t.string   "lastname",                                            :null => false
-    t.string   "url_slug",                                            :null => false
-    t.string   "gender",                                              :null => false
-    t.date     "birthdate",                                           :null => false
-    t.integer  "country_id",                                          :null => false
+    t.string   "firstname",                              :null => false
+    t.string   "lastname",                               :null => false
+    t.string   "email",                                  :null => false
+    t.string   "url_slug",                               :null => false
+    t.string   "gender"
+    t.string   "phone"
+    t.string   "organization"
+    t.string   "description"
+    t.date     "birthdate"
+    t.integer  "country_id",                             :null => false
     t.string   "province"
+    t.string   "crypted_password",                       :null => false
+    t.string   "password_salt",                          :null => false
+    t.string   "persistence_token",                      :null => false
+    t.string   "single_access_token",                    :null => false
+    t.string   "perishable_token",                       :null => false
+    t.integer  "login_count",         :default => 0,     :null => false
+    t.integer  "failed_login_count",  :default => 0,     :null => false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
+    t.boolean  "locked",              :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
 
 end
