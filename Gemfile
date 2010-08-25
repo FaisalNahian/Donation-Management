@@ -16,5 +16,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'rspec', :require => 'spec'
   gem 'email_spec', '0.6.2'
+  gem 'autotest'
 end
 
