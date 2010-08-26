@@ -9,7 +9,7 @@
 	First Name <%= f.text_field :firstname %><br/>
 	Last Name <%= f.text_field :lastname %><br/>
 	URL Slug <%= f.text_field :url_slug %><br/>
-	Country <%= f.text_field :country_id %><br/>
+	Country <%= f.country_select :country_id %><br/>
 	Province <%= f.text_field :province %><br/>
 	<% if params[:type] == "Partner" %>
 		<%= render :partial => 'partner_form', :locals => {:f => f} %>
@@ -18,6 +18,6 @@
 		Birthdate <%= f.date_select :birthdate %><br/>
 	<% end %>
 	<%= recaptcha_tags :public_key => @setting.recaptcha_public_key if @setting %>
-	<%= f.hidden_field :type, :value => params[:type] %>
+	<%# f.hidden_field :type, :value => params[:type] %>
   <p><%= f.submit "Sign up" %></p>
 <% end -%>

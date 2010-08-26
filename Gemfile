@@ -5,6 +5,7 @@ gem "nokogiri"
 gem 'authlogic'
 gem 'will_paginate'
 gem "recaptcha", :require => 'recaptcha/rails' #, :git => "git://github.com/ambethia/recaptcha.git"
+gem 'countries'
 #gem 'mail', :require => 'mail'
 
 group :development, :test do
