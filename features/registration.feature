@@ -25,16 +25,16 @@ Feature: Registration
 	And I select "January" from "user_birthdate_2i"
 	And I select "1" from "user_birthdate_3i"
 	And I press "Sign up"
-	Then I should see "You have signed up successfully"
+	Then I should see "You have signed up successfully and will receive an email with instructions to verify your account"
 	And there should be 1 user with the email address test@domain.com
 	And the user with email address test@domain.com should not be active
-	And I should see "You will receive an email with instructions to verify your account"
-	And "test@domain.com" should receive an email with subject "Email Confirmation"
+	And "test@domain.com" should receive an email with subject "Account Confirmation"
 	When I open the email
 	Then I should see "Verify your account" in the email body
 	When I follow "Verify your account" in the email
 	Then I should see "Congratulations! Your account is now active."
-	And I should be logged in
+	And the user with email address test@domain.com should be active
+	And "test@domain.com" should be logged in
 
   @javascript
   Scenario: Successful Partner Signup
@@ -58,5 +58,5 @@ Feature: Registration
 	Then I should see "Your partner organization application has been submitted"
 	And there should be 1 partner with the email address test@domain.com
 	And the partner with email address test@domain.com should not be active
-	And I should not be logged in
+	And "test@domain.com" should not be logged in
 

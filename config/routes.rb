@@ -37,6 +37,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :admin_session, :controller => '/admin/sessions'
   map.resource :user_session
   map.resource :users
+  map.confirm_account '/users/confirm_account/:id', :controller => :users, 
+    :action => :confirm_account, :conditions => { :method => :get }
   map.resource :admins, :except => [:new, :create]
   map.resources :password_resets
 

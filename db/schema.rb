@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20100718040216) do
     t.date     "birthdate"
     t.integer  "country_id",                             :null => false
     t.string   "province"
+    t.boolean  "active",              :default => false, :null => false
     t.string   "crypted_password",                       :null => false
     t.string   "password_salt",                          :null => false
     t.string   "persistence_token",                      :null => false

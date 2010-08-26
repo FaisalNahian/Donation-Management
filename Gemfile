@@ -4,7 +4,7 @@ gem 'mysql'
 gem "nokogiri"
 gem 'authlogic'
 gem 'will_paginate'
-gem "recaptcha" #, :require => 'recaptcha/rails', :git => "git://github.com/ambethia/recaptcha.git"
+gem "recaptcha", :require => 'recaptcha/rails' #, :git => "git://github.com/ambethia/recaptcha.git"
 #gem 'mail', :require => 'mail'
 
 group :development, :test do
@@ -16,6 +16,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'rspec', :require => 'spec'
   gem 'email_spec', '0.6.2'
-  gem 'autotest'
+  #gem 'autotest'
+  #gem 'autotest-growl'
 end
 

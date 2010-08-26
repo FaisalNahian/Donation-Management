@@ -34,4 +34,5 @@ Feature: Admin Users
 	When I follow "Users"
 	Then I should see "test9@domain.com"
 	When I follow "deactivate9"
+  # this fails, but is a false failure...need some js help me thinks
 	Then I should see "User has been deactivated"

@@ -1,17 +1,18 @@
 class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table(:users) do |t|
-      t.string :firstname, :null => false
-      t.string :lastname, :null => false
-      t.string :email, :null => false
-      t.string :url_slug, :null => false
-      t.string :gender
-      t.string :phone
-      t.string :organization
-      t.string :description      
-      t.date :birthdate
+      t.string  :firstname, :null => false
+      t.string  :lastname, :null => false
+      t.string  :email, :null => false
+      t.string  :url_slug, :null => false
+      t.string  :gender
+      t.string  :phone
+      t.string  :organization
+      t.string  :description      
+      t.date    :birthdate
       t.integer :country_id, :null => false
-      t.string :province
+      t.string  :province
+      t.boolean :active, :default => false, :null => false
 
       t.string    :crypted_password,    :null => false    # optional, see below
       t.string    :password_salt,       :null => false    # optional, but highly recommended
