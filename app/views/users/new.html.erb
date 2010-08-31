@@ -13,8 +13,11 @@
 	Province <%= f.text_field :province %><br/>
 	<% if params[:type] == "Partner" %>
 		<%= render :partial => 'partner_form', :locals => {:f => f} %>
-	<% else %>
-		Gender <%= f.text_field :gender %><br/>
+	<% else %>   
+    <p>
+       <%= f.radio_button :gender, "M" %>Male
+       <%= f.radio_button :gender, "F" %>Female 
+    </p>
 		Birthdate <%= f.date_select :birthdate %><br/>
 	<% end %>
 	<%= recaptcha_tags :public_key => @setting.recaptcha_public_key if @setting %>
