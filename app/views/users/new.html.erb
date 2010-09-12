@@ -1,26 +1,33 @@
-<h2>Sign up</h2>
+<div id="signup">
+	<div id="register_header">Join Us <span id="register">| Already registered? <%= link_to "Sign In", new_user_session_path %>.</span><br/>
+		Make a difference today.</div>
+	
+	<% form_for @user, :user, users_path(@user) do |f| -%>
+	  <%= f.error_messages %>
 
-<% form_for @user, :user, users_path(@user) do |f| -%>
-  <%= f.error_messages %>
+		First Name: <%= f.text_field :firstname %><br/>
+		Last Name: <%= f.text_field :lastname %><br/>
+		Email Address: <%= f.text_field :email %><br/>
+	  	Password: <%= f.label :password %> <%= f.password_field :password %><br/>
+	  	Re-enter Password: <%= f.password_field :password_confirmation %><br/>
 
-  <%= f.label :email %> <%= f.text_field :email %><br/>
-  <%= f.label :password %> <%= f.password_field :password %><br/>
-  <%= f.label :password_confirmation %> <%= f.password_field :password_confirmation %><br/>
-	First Name <%= f.text_field :firstname %><br/>
-	Last Name <%= f.text_field :lastname %><br/>
-	URL Slug <%= f.text_field :url_slug %><br/>
-	Country <%= f.country_select :country_id %><br/>
-	Province <%= f.text_field :province %><br/>
-	<% if params[:type] == "Partner" %>
-		<%= render :partial => 'partner_form', :locals => {:f => f} %>
-	<% else %>   
-    <p>
-       <%= f.radio_button :gender, "M" %>Male
-       <%= f.radio_button :gender, "F" %>Female 
-    </p>
-		Birthdate <%= f.date_select :birthdate %><br/>
-	<% end %>
-	<%= recaptcha_tags :public_key => @setting.recaptcha_public_key if @setting %>
-	<%# f.hidden_field :type, :value => params[:type] %>
-  <p><%= f.submit "Sign up" %></p>
-<% end -%>
+<!--
+		URL Slug <%= f.text_field :url_slug %><br/>
+		Country <%= f.country_select :country_id %><br/>
+		Province <%= f.text_field :province %><br/>
+		<% if params[:type] == "Partner" %>
+			<%= render :partial => 'partner_form', :locals => {:f => f} %>
+		<% else %>   
+	    <p>
+	       <%= f.radio_button :gender, "M" %>Male
+	       <%= f.radio_button :gender, "F" %>Female 
+	    </p>
+			Birthdate <%= f.date_select :birthdate %><br/>
+		<% end %>
+		<%= recaptcha_tags :public_key => @setting.recaptcha_public_key if @setting %>
+-->		
+<%= check_box 'terms', 'true' %> I certify that I am at least 13 years of age and agree to the terms and privacy.
+
+	  <p><%= f.submit "Join Us" %></p>
+	<% end -%>
+</div>

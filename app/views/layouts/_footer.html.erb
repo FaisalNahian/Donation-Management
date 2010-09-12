@@ -1,3 +1,16 @@
 <div id="footer">
-	<%= link_to "Terms of Service", terms_of_service_path %>
+	<div id="footer_border"></div>
+	<div id="footer_content">
+		<div id="footer_links">
+			<div><%= link_to "About", about_path %></div>
+			<div><%= link_to "How it Works", how_path %></div>
+			<div><%= link_to "Get Involved", involved_path %></div>
+			<div><%= link_to "Contact", contact_path %></div>
+		</div>
+		&copy; 2010 UniteChange.org | 
+		<%= link_to "Terms of Service", terms_of_service_path %> | 
+		<%= link_to "Privacy", privacy_path %>
+		
+		<!-- development by Onomojo.com -->
+	</div>
 </div>

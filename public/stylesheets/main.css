@@ -1,0 +1,240 @@
+html, body {
+	margin: 0px;
+	padding: 0px;
+	font-family: arial;
+	background-image: url(/images/footer_bg.png);
+}
+#header {
+	height: 75px;
+	background: #506323;
+	color: #fff;
+}
+
+#header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+#header_content {
+	width: 850px;
+	margin: 0 auto;
+	padding-top: 15px;
+}
+
+#logo img {
+	border: 0px;
+}
+
+#top_links {
+	width: 300px;
+	float: right;
+	text-align: right;
+	padding-top: 20px;
+	font-size: .8em;
+}
+
+#page {
+	background: #fff;
+}
+
+#page_content {
+	width: 850px;
+	margin: 0 auto;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+#footer {
+	text-align: center;
+	margin: 0 auto;
+	color: #fff;
+	font-family: times;
+	padding-bottom: 40px;
+}
+
+#footer a {
+	color: #fff;
+	text-decoration: none;
+}
+
+#footer a:hover {
+	text-decoration: underline;
+}
+
+#footer_border {
+	height: 41px;
+	background-image: url(/images/footer_border.png);
+}
+
+#footer_links {
+	font-size: 1.5em;
+	padding-left: 20px;
+	padding-right: 20px;
+	height: 80px;
+	width: 650px;
+	margin: 0 auto;
+}
+
+#footer_links div {
+	float: left;
+	height: 40px;
+	margin: 20px;
+	margin-right: 40px;
+	margin-left: 20px;
+}
+
+#welcome_message {
+	width: 400px;
+	color: #506323;
+	font-size: 1.5em;
+	height: 350px;
+}
+
+#learn_more {
+	text-align: right;
+	margin-top: 25px;
+}
+
+#learn_more a {
+	text-decoration: none;
+	color: #506323;
+}
+
+#learn_more a:hover {
+	text-decoration: underline;
+}
+
+#learn_more img {
+	border: 0px;
+}
+
+#welcome_signup {
+	width: 450px;
+	float: right;
+}
+
+#welcome_signup_header {
+	padding-left: 40px;
+	font-size: 1.2em;
+}
+
+#welcome_signup form {
+	text-align: right;
+	margin-top: 40px;
+}
+
+#welcome_signup input[type=text], #welcome_signup input[type=password] {
+	border: 1px solid #96a6c5;
+	height: 25px;
+	margin: 2px;
+}
+
+#circles {
+	width: 850px;
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#circles img {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#about, #how, #signin {
+	color: #333;
+}
+
+.about_number {
+	width: 270px;
+	float: left;
+	margin-right: 10px;
+	font-size: .8em;
+}
+
+.about_number img {
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 50px;
+}
+
+#about_list {
+	height: 100px;
+	margin-top: 20px;
+}
+
+#about_header {
+	font-size: 1.8em;
+	width: 700px;
+}
+
+#about .next, #how .next {
+	float: right;
+}
+
+#about .next img, #how .next img {
+	border: 0px;
+}
+
+#how .next {
+	margin-left: 80px;
+	margin-top: 200px;
+}
+
+#about_mission {
+	margin-top: 20px;
+}
+
+#how_text {
+	width: 500px;
+}
+
+#how img {
+	float: right;
+}
+
+#signin {
+	width: 400px;
+	margin: 0 auto;
+}
+
+#signin_header, #register_header {
+	font-size: 1.5em;
+	margin-bottom: 40px;
+	padding-left: 50px;
+}
+
+#signin #register, #signup #register {
+	font-size: 80%;
+}
+
+#signin #register a, #signup #register a {
+	text-decoration: none;
+	color: #333;
+}
+
+#signin #register a:hover, #signup #register a:hover {
+	text-decoration: underline;
+}
+
+#signin form {
+	text-align: right;
+	margin-right: 50px;
+}
+
+input[type=text], input[type=password] {
+	border: 1px solid #96a6c5;
+	height: 25px;
+	margin: 2px;
+}
+
+#signup {
+	width: 450px;
+	margin: 0 auto;
+}
+
+#signup form {
+	text-align: right;
+	margin-right: 50px;
+}

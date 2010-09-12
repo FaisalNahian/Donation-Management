@@ -1,0 +1,9 @@
+<% if ["about","how","involved","contact"].include? request[:action] or request.path == '/' %>
+	<div id="circles">
+		<img src="/images/<% if request.path != '/' %>un<% end %>selected-circle.png"> 
+		<img src="/images/<% if request[:action] != 'about' %>un<% end %>selected-circle.png"> 
+		<img src="/images/<% if request[:action] != 'how' %>un<% end %>selected-circle.png">
+		<img src="/images/<% if request[:action] != 'involved' %>un<% end %>selected-circle.png">
+		<img src="/images/<% if request[:action] != 'contact' %>un<% end %>selected-circle.png">
+	</div>
+<% end %>

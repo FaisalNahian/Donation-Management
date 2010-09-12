@@ -1,7 +1,0 @@
-<% if !current_user %>
-	<%= link_to "Login", new_user_session_path, :title => "Login" %> / 
-	<%= link_to "Sign Up", new_users_path, :title => "Sign Up" %>
-	<%= link_to "Partner Sign Up", new_users_path(:type => "Partner"), :title => "Partner Sign Up" %>
-<% else %>
-	<%= link_to "Logout", user_session_path, :method => :delete %>
-<% end %>

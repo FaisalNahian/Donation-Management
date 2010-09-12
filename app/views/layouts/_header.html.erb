@@ -1,0 +1,14 @@
+<div id="header">
+	<div id="header_content">
+		<span id="logo"><a href="/"><img src="/images/logo.png" alt="UniteChange"></a></span>
+		<div id="top_links">
+			<% if !current_user %>
+				<%= link_to "Register", new_users_path, :title => "Register" %> | 
+				<%= link_to "Sign In", new_user_session_path, :title => "Sign In" %>
+	<!--			<%= link_to "Partner Sign Up", new_users_path(:type => "Partner"), :title => "Partner Sign Up" %> -->
+			<% else %>
+				<%= link_to "Logout", user_session_path, :method => :delete %>
+			<% end %>
+		</div>
+	</div>
+</div>
