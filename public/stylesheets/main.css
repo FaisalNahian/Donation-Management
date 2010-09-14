@@ -142,7 +142,7 @@ html, body {
 	margin-right: 20px;
 }
 
-#about, #how, #signin {
+#about, #how, #signin, #get_involved {
 	color: #333;
 }
 
@@ -237,4 +237,43 @@ input[type=text], input[type=password] {
 #signup form {
 	text-align: right;
 	margin-right: 50px;
+}
+
+#movie {
+	height: 300px;
+	width: 475px;
+	margin-right: 20px;
+	background: #000;
+	float: left;
+}
+
+#get_involved {
+	font-size: .8em;
+	height: 420px;
+}
+
+#get_involved h1 {
+	font-size: 1.9em;
+}
+
+#about_maathai {
+	width: 475px;
+	margin-bottom: 20px;
+}
+
+.involved_label {
+	width: 110px;
+	margin-right: 10px;
+	text-align: right;
+	float: left;
+	font-weight: bold;
+}
+
+.involved_values {
+	width: 200px;
+	float: left;
+}
+
+.involved_row {
+	height: 25px;
 }
