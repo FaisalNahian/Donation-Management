@@ -1,0 +1,26 @@
+<% content_for :page_title do %>
+	<h1>Listing Pages</h1>
+<% end %>
+
+<%= link_to 'New Page', new_admin_page_path %>
+
+<%= will_paginate @pages %>
+
+<table>
+	<tr>
+		<th>Title</th>
+		<th>URL</th>
+		<th>Active?</th>
+	</tr>
+	<% for page in @pages %>
+		<tr>
+			<td><%= page.title %></td>
+			<td><%= page.url_slug %></td>
+			<td><%= page.active %></td>
+			<td><%= link_to "Edit", edit_admin_page_path(page.id), :id => "edit#{page.id}" %></td>
+			<td><%= link_to "Deactivate", deactivate_admin_page_path(page.id), :id => "deactivate#{page.id}", :method => :put %></td>
+		</tr>
+	<% end %>
+</table>
+
+<%= will_paginate @pages %>
