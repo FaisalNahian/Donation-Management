@@ -277,3 +277,7 @@ input[type=text], input[type=password] {
 .involved_row {
 	height: 25px;
 }
+
+#get_involved img {
+	border: 0px;
+}
