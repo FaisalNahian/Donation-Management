@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   end
 
   def confirm_account
-    @user.active = true
+    @user.confirmed = true
     @user.save!
     UserSession.create( @user, true )
     flash[:notice] = "Congratulations! Your account is now active."

@@ -281,3 +281,13 @@ input[type=text], input[type=password] {
 #get_involved img {
 	border: 0px;
 }
+
+#my_account {
+	width: 850px;
+	margin: 0 auto;
+}
+
+#my_account form {
+	width: 400px;
+	text-align: right;
+}

@@ -1,18 +1,19 @@
 <div id="welcome_signup">
-	<div id="welcome_signup_header"><strong>Join Us</strong><br/>
-		Make a difference today.
-	</div>
+	<% if !current_user %>
+		<div id="welcome_signup_header"><strong>Join Us</strong><br/>
+			Make a difference today.
+		</div>
 	
-	<% form_for @user, :user, users_path do |f| -%>
-		First Name: <%= f.text_field :firstname %><br/>
-		Last Name: <%= f.text_field :lastname %><br/>
-	  	Email Address: <%= f.text_field :email %><br/>
-	  	New Password: <%= f.password_field :password %><br/>
-	  	Re-enter Password: <%= f.password_field :password_confirmation %><br/>
-		<%= check_box 'terms', 'true' %> I certify that I am at least 13 years of age and agree to the terms and privacy.
-	  <p><%= f.submit "Join Us" %></p>
-	<% end -%>
-	
+		<% form_for @user, :user, users_path do |f| -%>
+			First Name: <%= f.text_field :firstname %><br/>
+			Last Name: <%= f.text_field :lastname %><br/>
+		  	Email Address: <%= f.text_field :email %><br/>
+		  	New Password: <%= f.password_field :password %><br/>
+		  	Re-enter Password: <%= f.password_field :password_confirmation %><br/>
+			<%= check_box 'terms', 'true' %> I certify that I am at least 13 years of age and agree to the terms and privacy.
+		  <p><%= f.submit "Join Us" %></p>
+		<% end -%>
+	<% end %>
 	
 </div>
 

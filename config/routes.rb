@@ -29,6 +29,7 @@ ActionController::Routing::Routes.draw do |map|
   #   Directs /admin/users/* to Admin::UsersController (app/controllers/admin/users_controller.rb)
     admin.resources :users, :member => { :deactivate => :put }
     admin.resources :partners
+    admin.resources :pages, :member => { :deactivate => :put }
     admin.resources :account
     admin.resources :settings
   end
@@ -59,4 +60,5 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+  map.connect '*path', :controller => 'pages', :action => 'show'
 end

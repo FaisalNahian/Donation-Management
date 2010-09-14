@@ -6,7 +6,13 @@ class User < ActiveRecord::Base
                   :country_id, :province, :email, :password, 
                   :password_confirmation
   
-  before_create :default_approved
+  before_create :default_approved, :fake_data
+  
+  def fake_data
+    # this is called because the user model is slimmed down for now
+    self.country_id = 0
+    self.url_slug = ''
+  end
   
   def lock_access!
     self.locked = true
@@ -25,5 +31,9 @@ class User < ActiveRecord::Base
   
   def default_approved
     self.approved = true
+  end
+  
+  def name
+    "#{self.firstname} #{self.lastname}"
   end
 end
